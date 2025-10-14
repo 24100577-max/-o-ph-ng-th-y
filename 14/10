@@ -1,0 +1,205 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyObRSCw9TVPcCcOZKq7u6HK",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/24100577-max/-o-ph-ng-th-y/blob/main/14/10\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "SfZWX-Aoeyeq",
+        "outputId": "a6d27b84-2961-4089-f81e-62afcbf8b71b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Redefine length\n",
+            "4\n"
+          ]
+        }
+      ],
+      "source": [
+        "class Shopping:\n",
+        "    def __init__(self, basket, buyer):\n",
+        "        self.basket = list(basket)\n",
+        "        self.buyer = buyer\n",
+        "\n",
+        "    def __len__(self):\n",
+        "        print(\"Redefine length\")\n",
+        "        count = len(self.basket)\n",
+        "        return count *2\n",
+        "\n",
+        "s = Shopping([\"shoes\",\"dress\"], \"Jes\")\n",
+        "print(len(s))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Shape:\n",
+        "  def area(self, a, b=0):\n",
+        "    if b>0:\n",
+        "      print(a*b)\n",
+        "    else:\n",
+        "      print(a**2)\n",
+        "\n",
+        "s = Shape()\n",
+        "s.area(5)\n",
+        "rec = Shape()\n",
+        "rec.area(5,3)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "KirprrAwfeHu",
+        "outputId": "221c8382-59aa-41a9-84c8-9713de740863"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "25\n",
+            "15\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(100+200)\n",
+        "\n",
+        "print(\"jess\"+\"roy\")\n",
+        "\n",
+        "print([10+20+30]+[\"jessa\",\"emma\",\"kelly\"])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "7m66A6ihheI8",
+        "outputId": "819b6c7a-18a9-48c9-ded5-1ec883da26aa"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "300\n",
+            "jessroy\n",
+            "[60, 'jessa', 'emma', 'kelly']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Book:\n",
+        "  def __init__(self, page):\n",
+        "    self.page = page\n",
+        "\n",
+        "  def __add__(self, other):\n",
+        "    return self.page + other.page\n",
+        "\n",
+        "b1 = Book(100)\n",
+        "b2 = Book(200)\n",
+        "print(b1 + b2)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "KE_g5OEpitBD",
+        "outputId": "3675203a-d78a-40af-a96c-ced8808fb09f"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "300\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from abc import ABC , abstractmethod\n",
+        "from math import pi\n",
+        "\n",
+        "class Shape(ABC):\n",
+        "  @abstractmethod\n",
+        "  def calculare_perimeter(self):\n",
+        "    pass\n",
+        "  @abstractmethod\n",
+        "  def calculate_area(self):\n",
+        "    pass\n",
+        "\n",
+        "class Circle(Shape):\n",
+        "  def __init__(self, radius):\n",
+        "    self.radius = radius\n",
+        "\n",
+        "  def calculare_perimeter(self):\n",
+        "    return 2 * pi * self.radius\n",
+        "\n",
+        "  def calculate_area(self):\n",
+        "    return pi*self.radius**2\n",
+        "\n",
+        "c = Circle(5)\n",
+        "print(c.calculate_area())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "h0cxoqiDm-FI",
+        "outputId": "9325231d-fbed-41a7-e8e1-811a09bb51ac"
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "78.53981633974483\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
